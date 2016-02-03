@@ -6,6 +6,9 @@ platform:
 
 configuration:
   - Debug
+  
+install:
+  - npm install -g tfx-cli
 
 build_script:
   - cmd: nuget restore src/GitVersion.sln
@@ -27,6 +30,7 @@ build_script:
   - cmd: 7z a "GitVersionTfsBuildTask_%GitVersion_NuGetVersion%.zip" -r .\build\GitVersionTfsTaskBuild\*.*
   - cmd: appveyor PushArtifact "GitVersionTfsBuildTask_%GitVersion_NuGetVersion%.zip"
 
+  - cmd: tfx extension create --manifest-globs .\build\GitVersionTfsExtensionBuild\vss-extension.json
   - cmd: 7z a "GitVersionTfsBuildExtension_%GitVersion_NuGetVersion%.zip" -r .\build\GitVersionTfsExtensionBuild\*.*
   - cmd: appveyor PushArtifact "GitVersionTfsBuildExtension_%GitVersion_NuGetVersion%.zip"
 
