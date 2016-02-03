@@ -1,0 +1,60 @@
+{
+    "manifestVersion": 1,
+    "id": "gitversion",
+    "name": "GitVersion",
+    "version": "1.0.0",
+    "publisher": "gittools",
+    "public": true,
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "Build task for easy semantic versioning for projects using Git.",
+    "categories": [
+        "Build and release"
+    ],
+    "icons": {
+        "default": "extension-icon.png"        
+    },
+    "files": [
+        {
+            "path": "../GitVersionTfsTask"
+        }
+    ],
+    "content": {
+        "details":
+        {
+            "path": "extension-details.md"
+        }
+    },    
+    "contributions": [
+        {
+            "id": "gitversion",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "../GitVersionTfsTask"
+            }
+        }
+    ],
+    "links": {
+        "home": {
+            "uri": "http://gitversion.readthedocs.org/en/latest"
+        },
+        "getstarted": {
+            "uri": "http://gitversion.readthedocs.org/en/latest/build-server-support/build-server/tfs-build-vnext/#running-inside-tfs"
+        },
+        "issues": {
+            "uri": "https://github.com/GitTools/GitVersion/issues"
+        },
+        "license": {
+            "uri": "https://github.com/GitTools/GitVersion/blob/master/LICENSE"
+        },
+        "repository": {
+            "uri": "https://github.com/GitTools/GitVersion"
+        }
+    }    
+}
